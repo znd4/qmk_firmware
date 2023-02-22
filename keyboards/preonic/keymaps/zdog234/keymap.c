@@ -14,6 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "keycodes.h"
 #include QMK_KEYBOARD_H
 #include "muse.h"
 #include "macros.h"
@@ -43,11 +44,11 @@ enum preonic_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT_preonic_grid(
-  KC_GRV,   KC_1,   KC_2,     KC_3,    KC_4,    KC_5,   KC_6,      KC_7,   KC_8,    KC_9,     KC_0,    KC_BSPC,
-  KC_TAB,   KC_Q,   KC_W,     KC_E,    KC_R,    KC_T,   KC_Y,      KC_U,   KC_I,    KC_O,     KC_P,    KC_BACKSLASH,
+  KC_GRV,   KC_1,   KC_2,     KC_3,    KC_4,    KC_5,   KC_6,      KC_7,   KC_8,    KC_9,     KC_0,              KC_BSPC,
+  KC_TAB,   KC_Q,   KC_W,     KC_E,    KC_R,    KC_T,   KC_Y,      KC_U,   KC_I,    KC_O,     KC_P,              KC_BACKSLASH,
   CTL_ESC,  KC_A,   KC_S,     KC_D,    KC_F,    KC_G,   KC_H,      KC_J,   KC_K,    KC_L,     LT(_NAV, KC_SCLN), KC_QUOT,
-  SFT_LPRN, KC_Z,   KC_X,     KC_C,    KC_V,    KC_B,   KC_N,      KC_M,   KC_COMM, KC_DOT,   KC_SLSH, SFT_RPRN,
-  GUI_LBRK, LHYPER, ALT_LABK, KC_LGUI, NUMERIC, KC_SPC, KC_ENT, SYMBOL, NAV,     ALT_RABK, RHYPER,  GUI_RBRK
+  SFT_LPRN, KC_Z,   KC_X,     KC_C,    KC_V,    KC_B,   KC_N,      KC_M,   KC_COMM, KC_DOT,   KC_SLSH,           SFT_RPRN,
+  GUI_LBRK, LHYPER, KC_LALT,  KC_LGUI, NUMERIC, KC_SPC, KC_ENT,    SYMBOL, KC_RGUI, KC_RALT,  RHYPER,            GUI_RBRK
 ),
 
 /* Colemak
@@ -65,11 +66,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_COLEMAK] = LAYOUT_preonic_grid(
-  KC_GRV,   KC_1,   KC_2,     KC_3,    KC_4,    KC_5,   KC_6,      KC_7,   KC_8,    KC_9,     KC_0,    KC_BSPC,
-  KC_TAB,   KC_Q,   KC_W,     KC_F,    KC_P,    KC_G,   KC_J,      KC_L,   KC_U,    KC_Y,     KC_SCLN, KC_BACKSLASH,
-  CTL_ESC,  KC_A,   KC_R,     KC_S,    KC_T,    KC_D,   KC_H,      KC_N,   KC_E,    KC_I,     MT(_NAV, KC_O),    KC_QUOT,
-  SFT_LPRN, KC_Z,   KC_X,     KC_C,    KC_V,    KC_B,   KC_K,      KC_M,   KC_COMM, KC_DOT,   KC_SLSH, SFT_RPRN,
-  GUI_LBRK, LHYPER, ALT_LABK, KC_LGUI, NUMERIC, KC_SPC, KC_ENT, SYMBOL, NAV,     ALT_RABK, RHYPER,  GUI_RBRK
+  KC_GRV,   KC_1,   KC_2,     KC_3,    KC_4,    KC_5,   KC_6,   KC_7,   KC_8,    KC_9,     KC_0,           KC_BSPC,
+  KC_TAB,   KC_Q,   KC_W,     KC_F,    KC_P,    KC_G,   KC_J,   KC_L,   KC_U,    KC_Y,     KC_SCLN,        KC_BACKSLASH,
+  CTL_ESC,  KC_A,   KC_R,     KC_S,    KC_T,    KC_D,   KC_H,   KC_N,   KC_E,    KC_I,     LT(_NAV, KC_O), KC_QUOT,
+  SFT_LPRN, KC_Z,   KC_X,     KC_C,    KC_V,    KC_B,   KC_K,   KC_M,   KC_COMM, KC_DOT,   KC_SLSH,        SFT_RPRN,
+  GUI_LBRK, LHYPER, KC_LALT,  KC_LGUI, NUMERIC, KC_SPC, KC_ENT, SYMBOL, NAV,     KC_RALT,  RHYPER,         GUI_RBRK
 ),
 
 /* Dvorak
@@ -86,11 +87,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_DVORAK] = LAYOUT_preonic_grid(
-  KC_GRV,   KC_1,    KC_2,     KC_3,    KC_4,    KC_5,   KC_6,      KC_7,   KC_8, KC_9,     KC_0,           KC_BSPC,
-  KC_TAB,   KC_QUOT, KC_COMM,  KC_DOT,  KC_P,    KC_Y,   KC_F,      KC_G,   KC_C, KC_R,     KC_L,           KC_BACKSLASH,
-  CTL_ESC,  KC_A,    KC_O,     KC_E,    KC_U,    KC_I,   KC_D,      KC_H,   KC_T, KC_N,     MT(_NAV, KC_S), KC_SLSH,
-  SFT_LPRN, KC_SCLN, KC_Q,     KC_J,    KC_K,    KC_X,   KC_B,      KC_M,   KC_W, KC_V,     KC_Z,           SFT_RPRN,
-  GUI_LBRK, LHYPER,  ALT_LABK, KC_LGUI, NUMERIC, KC_SPC, KC_ENT,    SYMBOL, NAV,  ALT_RABK, RHYPER,         GUI_RBRK
+  KC_GRV,   KC_1,    KC_2,     KC_3,    KC_4,    KC_5,   KC_6,      KC_7,   KC_8, KC_9,    KC_0,           KC_BSPC,
+  KC_TAB,   KC_QUOT, KC_COMM,  KC_DOT,  KC_P,    KC_Y,   KC_F,      KC_G,   KC_C, KC_R,    KC_L,           KC_BACKSLASH,
+  CTL_ESC,  KC_A,    KC_O,     KC_E,    KC_U,    KC_I,   KC_D,      KC_H,   KC_T, KC_N,    LT(_NAV, KC_S), KC_SLSH,
+  SFT_LPRN, KC_SCLN, KC_Q,     KC_J,    KC_K,    KC_X,   KC_B,      KC_M,   KC_W, KC_V,    KC_Z,           SFT_RPRN,
+  GUI_LBRK, LHYPER,  KC_LALT,  KC_LGUI, NUMERIC, KC_SPC, KC_ENT,    SYMBOL, NAV,  KC_RALT, RHYPER,         GUI_RBRK
 ),
 
 /* NUMERIC
