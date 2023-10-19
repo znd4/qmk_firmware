@@ -4,7 +4,7 @@ extern keymap_config_t keymap_config;
 
 // Keymap layers
 enum layer_names {
-    _BASE_LAYER,
+    _QWERTY,
     _RAISE_LAYER,
     _LOWER_LAYER,
     _NUMPAD_LAYER,
@@ -45,6 +45,23 @@ enum layer_names {
 #define GUI_SSF LGUI(LSFT(KC_3)) // Full screen shot
 #define GUI_SST LGUI(LSFT(KC_4)) // Targetted screen shot
 
+// home row mods
+// QWERTY
+#define CTL_S LCTL_T(KC_S)
+#define ALT_D LALT_T(KC_D)
+#define GUI_F LGUI_T(KC_F)
+#define CTL_L LCTL_T(KC_L)
+#define ALT_K LALT_T(KC_K)
+#define GUI_J LGUI_T(KC_J)
+
+// COLEMAK
+#define CTL_R LCTL_T(KC_R)
+#define ALT_S LALT_T(KC_S)
+#define GUI_T LGUI_T(KC_T)
+#define GUI_N LGUI_T(KC_N)
+#define ALT_E LALT_T(KC_E)
+#define CTL_I LCTL_T(KC_I)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
@@ -58,13 +75,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Numpad |  Ctrl  |  Alt   |  GUI   |  Lower |  Bksp  |  Space | Raise  |  Ctrl  |  Alt   |   UI   |  Keybd |
  * `-----------------------------------------------------------------------------------------------------------'
  */
-[_BASE_LAYER] = LAYOUT_ortho_4x12(
-    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
-    CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    SCL_NAV, KC_QUOT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, SFT_ENT,
-    L_NUMPAD,KC_LCTL, KC_LALT, KC_LGUI, L_LOWER, KC_SPACE,KC_BSPC, L_RAISE, KC_RCTL, KC_RALT, L_UI,    L_KEYBD
+[_QWERTY] = LAYOUT_ortho_4x12(
+    KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
+    CTL_ESC,  KC_A,    CTL_S,   ALT_D,   GUI_F,   KC_G,    KC_H,    GUI_J,   ALT_K,   CTL_L,   SCL_NAV, KC_QUOT,
+    KC_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, SFT_ENT,
+    L_NUMPAD, KC_LCTL, KC_LALT, KC_LGUI, L_LOWER, KC_SPACE,KC_BSPC, L_RAISE, KC_RCTL, KC_RALT, L_UI,    L_KEYBD
 ),
 
+[_COLEMAK] = LAYOUT_ortho_4x12(
+    KC_TAB,   KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,     KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC,
+    CTL_ESC,  KC_A,    CTL_R,   ALT_S,   GUI_T,   KC_G,     KC_M,    GUI_N,   ALT_E,   CTL_I,   KC_O,    KC_QUOT,
+    KC_LSFT,  KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,     KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, SFT_ENT,
+    L_NUMPAD, KC_LCTL, KC_LALT, KC_LGUI, L_LOWER, KC_SPACE, KC_BSPC, L_RAISE, KC_RCTL, KC_RALT, L_UI,    L_KEYBD
+),
 /* Lower
  * ,-----------------------------------------------------------------------------------------------------------.
  * |   `    |    !   |    @   |    #   |    $   |    %   |    ^   |    &   |    *   |   +    |    =   |    -   |
