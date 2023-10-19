@@ -5,6 +5,7 @@ extern keymap_config_t keymap_config;
 // Keymap layers
 enum layer_names {
     _QWERTY,
+    _COLEMAK,
     _RAISE_LAYER,
     _LOWER_LAYER,
     _NUMPAD_LAYER,
@@ -57,8 +58,8 @@ enum layer_names {
 // COLEMAK
 #define CTL_R LCTL_T(KC_R)
 #define ALT_S LALT_T(KC_S)
-#define GUI_T LGUI_T(KC_T)
-#define GUI_N LGUI_T(KC_N)
+#define GUI_TT LGUI_T(KC_T)
+#define GUI_TN LGUI_T(KC_N)
 #define ALT_E LALT_T(KC_E)
 #define CTL_I LCTL_T(KC_I)
 
@@ -84,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_COLEMAK] = LAYOUT_ortho_4x12(
     KC_TAB,   KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,     KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC,
-    CTL_ESC,  KC_A,    CTL_R,   ALT_S,   GUI_T,   KC_G,     KC_M,    GUI_N,   ALT_E,   CTL_I,   KC_O,    KC_QUOT,
+    CTL_ESC,  KC_A,    CTL_R,   ALT_S,   GUI_TT,   KC_G,     KC_M,    GUI_TN,   ALT_E,   CTL_I,   KC_O,    KC_QUOT,
     KC_LSFT,  KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,     KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, SFT_ENT,
     L_NUMPAD, KC_LCTL, KC_LALT, KC_LGUI, L_LOWER, KC_SPACE, KC_BSPC, L_RAISE, KC_RCTL, KC_RALT, L_UI,    L_KEYBD
 ),
