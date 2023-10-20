@@ -197,3 +197,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, _______, _______, _______, _______, _______
 ),
 };
+void keyboard_post_init_user(void) {
+    // Call the keyboard post init code.
+    rgblight_disable();
+    // backlight_disable();
+}
